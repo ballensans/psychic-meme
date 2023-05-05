@@ -9,10 +9,15 @@ tasks:
     summary: |
       query github and aws for my current identity
     deps:
+      - check-internet-access
       - check-aws-id
       - check-github-id
 
-  selftest:
+  check-internet-access:
+    desc: confirm access to public internet
+    cmds:
+      - curl -sIG http://neverssl.com | head -1
+      - curl -sG  https://ipinfo.io
 
   check-github-id:
     desc: confirm SSH credentials are in place and show GitHub Identity
