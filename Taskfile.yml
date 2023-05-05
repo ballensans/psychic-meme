@@ -17,7 +17,7 @@ tasks:
   check-github-id:
     desc: confirm SSH credentials are in place and show GitHub Identity
     cmds:
-      - which ssh && ssh --version | head -1
+      - which ssh && ssh -V | head -1
       - ssh -T git@github.com 2>&1 || true
 
   check-aws-id:
