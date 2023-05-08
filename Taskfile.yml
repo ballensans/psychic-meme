@@ -30,3 +30,8 @@ tasks:
     cmds:
       - which aws && aws --version | head -1
       - aws sts get-caller-identity --output table
+
+  buckets:
+    desc: confirm AWS credentials are available and show identity
+    cmds:
+      - aws s3 ls --summarize --output text
