@@ -16,8 +16,9 @@ tasks:
   check-internet-access:
     desc: confirm access to public internet
     cmds:
+      - which curl && curl --version | head -1
       - curl -sIG http://neverssl.com | head -1
-      - curl -sG  https://ipinfo.io
+      - curl -sG  https://ipinfo.io/ip
 
   check-github-id:
     desc: confirm SSH credentials are in place and show GitHub Identity
@@ -32,6 +33,6 @@ tasks:
       - aws sts get-caller-identity --output table
 
   buckets:
-    desc: confirm AWS credentials are available and show identity
+    desc: confirm AWS credentials can list S3 buckets
     cmds:
       - aws s3 ls --summarize --output text
